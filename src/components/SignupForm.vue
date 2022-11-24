@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label>Email:</label>
     <input type="email" required v-model="email">
 
@@ -11,6 +11,7 @@
         <option value="developer">Web developer</option>
         <option value="designer">Web designer</option>
     </select>
+    <button type="submit">Create account</button>
   </form>
 
   <p>Email: {{ email }}</p>
@@ -26,6 +27,11 @@ export default {
             password: '',
             role: 'designer',
         }
+    },
+    methods:{
+      handleSubmit(){
+        console.log('submit happend')
+      }
     }
 }
 </script>
